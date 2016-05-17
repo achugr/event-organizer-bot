@@ -1,0 +1,7 @@
+telegram:
+  token:
+  botName:
+
+mongo:
+  uri:
+  dbname:

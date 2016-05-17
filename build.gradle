@@ -1,0 +1,68 @@
+group 'ru.achugr'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: "kotlin"
+apply plugin: 'application'
+apply plugin: 'spring-boot'
+
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.3.0.RELEASE")
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.0.1"
+    }
+}
+
+mainClassName = "ru.achugr.gamepart.ApplicationKt"
+
+sourceCompatibility = 1.5
+
+repositories {
+    mavenCentral()
+    maven { url "https://jitpack.io" }
+}
+allprojects {
+    tasks.withType(JavaCompile) {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib:1.0.1"
+    compile 'org.springframework.boot:spring-boot-starter-data-mongodb:1.3.3.RELEASE'
+
+    compile 'com.github.rubenlagus:TelegramBots:v1.0'
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.+'
+    compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.+'
+    compile "org.projectlombok:lombok:1.16.6"
+    compile 'org.hibernate:hibernate-validator:5.2.4.Final'
+    compile 'org.springframework.boot:spring-boot-starter:1.3.2.RELEASE'
+    compile 'org.mongodb:mongo-java-driver:3.2.2'
+    compile 'org.springframework:spring-test:4.2.4.RELEASE'
+    compile 'com.intellij:annotations:12.0'
+
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.hamcrest:hamcrest-all:1.3'
+}
+
+test {
+    enabled=false
+}
+
+task stage(type: Copy, dependsOn: [clean, build]) {
+    from jar.archivePath
+    into project.rootDir
+    rename {
+        'app.jar'
+    }
+}
+stage.mustRunAfter(clean)
+
+clean << {
+    project.file('app.jar').delete()
+}

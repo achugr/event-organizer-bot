@@ -13,11 +13,11 @@ import javax.annotation.PostConstruct
 @Component
 open class TelegramConfig {
 
-    @Value("\${telegram.token}")
-    lateinit var telegramToken: String
+//    @Value("\${telegram.token}")
+    var telegramToken: String = ""
 
-    @Value("\${telegram.botName}")
-    lateinit var telegramBotName: String
+//    @Value("\${telegram.botName}")
+    var telegramBotName: String = ""
 
     @PostConstruct
     fun initFromEnvVars() {

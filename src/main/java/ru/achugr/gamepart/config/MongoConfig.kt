@@ -20,11 +20,11 @@ val log = LoggerFactory.getLogger(MongoConfig::class.java)
 open class MongoConfig {
 
 
-    @Value("\${mongo.uri}")
-    lateinit var mongoUri: String
+//    @Value("\${mongo.uri}")
+    var mongoUri: String = ""
 
-    @Value("\${mongo.dbname}")
-    lateinit var dbName: String
+//    @Value("\${mongo.dbname}")
+    var dbName: String = ""
 
     @PostConstruct
     fun initFromEnvVars() {

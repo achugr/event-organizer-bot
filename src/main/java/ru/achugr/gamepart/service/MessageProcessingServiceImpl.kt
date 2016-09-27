@@ -55,6 +55,8 @@ open class MessageProcessingServiceImpl @Autowired constructor(val gameService: 
                 } else {
                     val argsTrimed = args.trim();
                     val invitedUserName = "$argsTrimed (invited by $userName)"
+//                    TODO it's temp solution, we should add "invited by" field and
+//                    TODO decide what to do with id, because random id might be a reason of collisions in future
                     number = gameService.addPlayer(chatId, Player(Random().nextInt(), invitedUserName))
                     return "User $argsTrimed added to game, players count: $number"
                 }

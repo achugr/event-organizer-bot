@@ -1,7 +1,13 @@
 telegram:
-  token:
-  botName:
+  token: TOKEN_VALUE
+  botName: BOT_NAME
 
 mongo:
-  uri:
-  dbname:
+  dbname: DB_NAME
+  uri: DB_URI
+
+command:
+  new: new
+  i: i
+  cant: cant
+  event: event

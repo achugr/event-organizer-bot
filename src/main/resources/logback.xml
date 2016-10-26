@@ -9,7 +9,7 @@
         </layout>
     </appender>
 
-    <logger name="ru.achugr.gamepart" level="debug"
+    <logger name="ru.achugr.eventbot" level="debug"
             additivity="false">
         <appender-ref ref="STDOUT" />
     </logger>

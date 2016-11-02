@@ -5,8 +5,8 @@ telegram bot. It allows to create events, record yourself on a current event and
 The bot has several commands.
 
 * /new - creates a new event (an old event marked as inactive and now can't be access later)
-* /i - attend a current game
-* /cant - removes you from a current game
+* /i - attend a current event
+* /cant - removes you from a current event
 * /event - shows list of participant
 
 ## About implementation
